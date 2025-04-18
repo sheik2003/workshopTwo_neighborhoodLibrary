@@ -9,29 +9,28 @@ public class Book {
     private String checkedOutTo;
 
 
-    public Book(boolean isCheckedOut, int id, String isbn, String title, String checkedOutTo) {
-        this.isCheckedOut = isCheckedOut;
+    public Book( int id, String isbn, String title) {
+//        this.isCheckedOut = isCheckedOut;
         this.id = id;
         this.isbn = isbn;
         this.title = title;
-        this.checkedOutTo = checkedOutTo;
     }
 
-    public boolean isCheckedOut() {
-        return isCheckedOut;
-    }
-
-    public void setCheckedOut(boolean checkedOut) {
-        isCheckedOut = checkedOut;
-    }
-
-    public String getCheckedOutTo() {
-        return checkedOutTo;
-    }
-
-    public void setCheckedOutTo(String checkedOutTo) {
-        this.checkedOutTo = checkedOutTo;
-    }
+//    public boolean isCheckedOut() {
+//        return isCheckedOut;
+//    }
+//
+//    public void setCheckedOut(boolean checkedOut) {
+//        isCheckedOut = checkedOut;
+//    }
+//
+//    public String getCheckedOutTo() {
+//        return checkedOutTo;
+//    }
+//
+//    public void setCheckedOutTo(String checkedOutTo) {
+//        this.checkedOutTo = checkedOutTo;
+//    }
 
     public String getTitle() {
         return title;
