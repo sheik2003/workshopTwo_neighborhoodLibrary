@@ -3,7 +3,7 @@ package com.ps;
 import java.util.Scanner;
 
 public class Main {
-    Scanner scanner = new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
 
     public static Book[] inventory = {
             new Book(1, "ISBN-00001", "To Kill a Mockingbird", false, ""),
@@ -30,16 +30,63 @@ public class Main {
     };
 
 
+    public static void displayHomeScreen(){
 
-    void availableBooks(Book[] inventory){
+        System.out.println("Welcome to the community library home screen please choose one of the options: ");
+        System.out.println("1) Show Available Books");
+        System.out.println("2) Show Checked out Books");
+        System.out.println("3) Exit the application");
+
+
+        int userInput = scanner.nextInt();
+
+
+
+        if (userInput == 1) {
+
+        showAvailableBooks(inventory);
+            System.out.println("\n");
+            System.out.println("Would you like to checkout any of the books above? (Press 1 to proceed to checkout or 2 exit back to HomeScreen)");
+            int proceedToCheckout = scanner.nextInt();
+            if (proceedToCheckout == 1){
+
+                System.out.println("Please enter your name for the record: ");
+                String userName = scanner.nextLine();
+
+                System.out.println("Please enter the Id of the book you'd like the checkout: ");
+                int checkoutBookID = scanner.nextInt();
+                for (int i = 0; i <inventory.length ; i++) {
+                    if(inventory[i].getId() == checkoutBookID){
+                        inventory[i].setCheckedOutTo(userName);
+                        inventory[i].setCheckedOut(true);
+                        System.out.println("The user " + userName + " has successfully checkout the following book: " + inventory[i].getTitle());
+
+                    }
+                }
+            }
+        }
+
+
+        String userChoice = scanner.nextLine();
+
+        //1 display books avialble
+//        System.out.println("The following Books are available formated in the following |id | ISBN | Title | "  );
+//        showAvailableBooks(inventory);
+
+        //2 show checked out books
+
+    }
+
+    public  static void showAvailableBooks(Book[] inventory){
+        System.out.println("The following are all the books currently avaiable they are formatted in the following: \n|ID | ISBN | TITLE");
         for (int i = 0; i < inventory.length ; i++) {
             if (!inventory[i].isCheckedOut()){
-                System.out.println("The following Books are available " + inventory[i].getId() + " " + inventory[i].getIsbn() + " " + inventory[i].getTitle());
+                System.out.println( inventory[i].getId() + " " + inventory[i].getIsbn() + " " + inventory[i].getTitle());
             }
         }
     }
 
-    void checkOutBook(Book[] inventory, char userInput){
+    public static void showCheckedOutBook(Book[] inventory, String userInput){
         for (int i = 0; i < inventory.length; i++) {
             if (inventory[i].isCheckedOut() ){
                 System.out.println("This book is checked out : " + inventory[i].getId() + " " + inventory[i].getIsbn()+ " " + inventory[i].getTitle() + "It has been checked out by "+ inventory[i].getCheckedOutTo());
@@ -49,7 +96,7 @@ public class Main {
         }
     }
 
-    void checkInBook(Book[] inventory,int id ){
+    public static void checkInBook(Book[] inventory,int id ){
         for (int i = 0; i < inventory.length; i++) {
             if (inventory[i].getId() == id){
                 inventory[i].setCheckedOutTo("");
@@ -58,12 +105,9 @@ public class Main {
         }
     };
 
-
-
     public static void main(String[] args) {
 
-
-
+        displayHomeScreen();
 
 
 //        System.out.println(inventory[0].getIsbn());
