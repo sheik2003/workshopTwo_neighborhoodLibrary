@@ -47,6 +47,7 @@ public class Main {
                         System.out.println("(Press 1 to proceed to checkout or 2 to exit back to HomeScreen)");
 
                         proceedToCheckout = scanner.nextInt();
+                        scanner.nextLine();
                         if (proceedToCheckout == 1) {
 
                             System.out.println("Please enter your name for the record: ");
@@ -54,6 +55,7 @@ public class Main {
 
                             System.out.println("Please enter the Id of the book you'd like the checkout: ");
                             int checkoutBookID = scanner.nextInt();
+                            scanner.nextLine();
                             for (int i = 0; i < inventory.length; i++) {
                                 if (inventory[i].getId() == checkoutBookID) {
                                     inventory[i].setCheckedOutTo(userName);
@@ -76,11 +78,12 @@ public class Main {
 
                     if (checkoutOrHome.equals("C")){
                         System.out.println("Please enter the ID of the book you want to check in: ");
-                        int checkInUserId = scanner.nextInt();
+                        int checkInBookId = scanner.nextInt();
+                        scanner.nextLine();
 
-                        checkInBook(inventory,checkInUserId);
+
+                        checkInBook(inventory,checkInBookId);
                         showCheckedOutBook(inventory);
-
                     }
                     break;
                 case 3:
@@ -186,7 +189,6 @@ public class Main {
     public static void checkInBook(Book[] inventory,int id ){
         for (int i = 0; i < inventory.length; i++) {
             if (inventory[i].getId() == id){
-                inventory[i].setCheckedOutTo("");
                 inventory[i].setCheckedOut(false);
             }
         }
