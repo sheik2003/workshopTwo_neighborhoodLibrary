@@ -44,7 +44,7 @@ public class Main {
 
                         System.out.println("\n");
                         System.out.println("Would you like to checkout any of the books above? ");
-                        System.out.println("(Press 1 to proceed to checkout or 3 to exit back to HomeScreen)");
+                        System.out.println("(Press 1 to proceed to checkout or 2 to exit back to HomeScreen)");
 
                         proceedToCheckout = scanner.nextInt();
                         if (proceedToCheckout == 1) {
@@ -62,16 +62,16 @@ public class Main {
 
                                 }
                             }
-                        } else if (proceedToCheckout == 3) {
-                            break;
+
                         }
+
                     }
+                    break;
                 case 2:
                     showCheckedOutBook(inventory);
-                    System.out.println( "If you would like to check in a book please press C");
-                    System.out.println(" If you want to go Home press X");
+                    System.out.println( "If you would like to check in a book please press C: ");
+                    System.out.println(" If you want to go Home press X: ");
 
-                    scanner.nextLine();
                     String checkoutOrHome = scanner.nextLine();
 
                     if (checkoutOrHome.equals("C")){
@@ -80,12 +80,10 @@ public class Main {
 
                         checkInBook(inventory,checkInUserId);
                         showCheckedOutBook(inventory);
-                    } else if (checkoutOrHome.equals("X")) {
-                        break;
+
                     }
+                    break;
                 case 3:
-                    mainMenu();
-                case 4:
                     System.out.println("You have chosen to exit the application Good Bye");
                     return;
                 default:
@@ -104,7 +102,7 @@ public class Main {
         System.out.println("Welcome to the community library home screen please choose one of the options: ");
         System.out.println("1) Show Available Books");
         System.out.println("2) Show Checked out Books");
-        System.out.println("4) Exit the application");
+        System.out.println("3) Exit the application");
 
 //        int userInput = scanner.nextInt();
 //
