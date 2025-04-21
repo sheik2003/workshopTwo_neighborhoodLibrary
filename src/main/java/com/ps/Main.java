@@ -111,7 +111,7 @@ public class Main {
 
     public  static void showAvailableBooks(Book[] inventory){
         System.out.println("\n------------------------------------------------------------------------------------------------------------");
-        System.out.println("The following are all the books currently avaiable they are formatted in the following: \n|ID | ISBN | TITLE");
+        System.out.println("The following are all the books currently available they are formatted in the following: \n|ID | ISBN | TITLE");
         System.out.println("\n------------------------------------------------------------------------------------------------------------\n");
         for (int i = 0; i < inventory.length ; i++) {
             if (!inventory[i].isCheckedOut()){
@@ -135,6 +135,8 @@ public class Main {
         for (int i = 0; i < inventory.length; i++) {
             if (inventory[i].getId() == id){
                 inventory[i].setCheckedOut(false);
+                System.out.println("The book " + inventory[i].getTitle() + " has successfully been returned ");
+                System.out.println("\n-----------------------------------------------------------------------------------------");
             }
         }
     }
