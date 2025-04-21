@@ -46,12 +46,14 @@ The app will respond with:
 
 
 ### 🤔Interesting piece of code:
-The following code was interesting to me as I've learned that when you break out of a switch case, it goes back to the default. So it is essntially a if statement encased with a for loop. I found this to be really interesting for this project because it helped me make the library be dynamic so the user can go back an dforth itnot the differnt options without the code stoping.
-switch (choice){
-case 1:
-int proceedToCheckout = 0;
-while (proceedToCheckout != 2) {
-showAvailableBooks(inventory);
+One part of the code that stood out to me was how the switch statement works in combination with loops. I learned that using break exits only the current case, not the entire loop. This essentially allowed the switch to behave like an if-else structure within a loop. I found this really interesting because it made my library program feel more dynamic — letting users navigate back and forth between different options without restarting or stopping the program.
+
+
+            switch (choice){
+                case 1:
+                    int proceedToCheckout = 0;
+                    while (proceedToCheckout != 2) {
+                        showAvailableBooks(inventory);
 
                         System.out.println("\n------------------------------------------------------------------------------------------------------------");
                         System.out.println("Would you like to checkout any of the books above?");
