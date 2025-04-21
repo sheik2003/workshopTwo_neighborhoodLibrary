@@ -11,7 +11,7 @@ This simple Java console application simulates a small neighborhood library syst
 - Emoji-enhanced book listings 📖
 - Check out books by entering your name and the book's ID
 - Check in books that are currently checked out
-- ASCII art + clean interface for a better terminal experience 🎨
+-  clean interface for a better terminal experience 🎨
 
 ---
 
